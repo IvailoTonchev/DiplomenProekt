@@ -1,4 +1,6 @@
-﻿namespace DiplomenProekt.Data.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DiplomenProekt.Data.Models
 {
     public class Estate
     {
@@ -14,6 +16,7 @@
         public double Area { get; set; }
         public int Floor { get; set; }
         public int MaxFloor { get; set; }
+        [ForeignKey(nameof(EstateExtras))]
         public int ExtrasId { get; set; }
         public virtual EstateExtras Extras { get; set; }
         public bool IsDeleted { get; set; }

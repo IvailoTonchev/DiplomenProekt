@@ -1,4 +1,6 @@
-﻿namespace DiplomenProekt.Data.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DiplomenProekt.Data.Models
 {
     public class EstateExtras
     {
@@ -10,6 +12,7 @@
         public bool West { get; set; }
         public bool South { get; set; }
         public bool North { get; set; }
+        [ForeignKey(nameof(Estate))]
         public int EstateId { get; set; }
         public virtual Estate Estate { get; set; }
     }
