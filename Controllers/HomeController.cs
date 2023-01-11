@@ -1,4 +1,5 @@
 ﻿using DiplomenProekt.Models;
+using DiplomenProekt.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,10 +8,12 @@ namespace DiplomenProekt.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IDataBaseSeeder dbs;        
+        
+        public HomeController(ILogger<HomeController> logger,IDataBaseSeeder dbs)
         {
-            _logger = logger;
+            _logger = logger; 
+            this.dbs = dbs;
         }
 
         public IActionResult Index()
@@ -18,8 +21,21 @@ namespace DiplomenProekt.Controllers
             return View();
         }
 
+        public  async Task <IActionResult> Seed()
+        {
+            if (await dbs.HasAnyDataInDBAsync() ==false)
+            {
+                await dbs.InsertDataInDBAsync();  
+
+            }
+           
+
+            return Redirect("Index");
+        }
+
         public IActionResult Privacy()
         {
+
             return View();
         }
 

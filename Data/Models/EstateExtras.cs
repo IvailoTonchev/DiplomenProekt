@@ -11,6 +11,7 @@ namespace DiplomenProekt.Data.Models
         public bool East { get; set; }
         public bool West { get; set; }
         public bool South { get; set; }
+        public bool Elevator { get; set; }
         public bool North { get; set; }
         [ForeignKey(nameof(Estate))]
         public int EstateId { get; set; }
