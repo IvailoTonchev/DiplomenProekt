@@ -13,6 +13,7 @@ namespace DiplomenProekt.Data.Models
         public string Description { get; set; }
         public string Pictures { get; set; }
         public EstateType EstateType { get; set; }
+        public EstateStatus EstateStatus { get; set; }
         public double Area { get; set; }
         public int Floor { get; set; }
         public int MaxFloor { get; set; }
@@ -21,5 +22,6 @@ namespace DiplomenProekt.Data.Models
         public virtual EstateExtras Extras { get; set; }
         public bool IsDeleted { get; set; }
     }
-    public enum EstateType {Search=0,Garage=1,Flat=2,House=3,Industrial=4 }
+    public enum EstateType {Unchosen=0,Garage=1,Flat=2,House=3,Industrial=4 }
+    public enum EstateStatus {Available=0,Sold=1,Taken=2 }
 }

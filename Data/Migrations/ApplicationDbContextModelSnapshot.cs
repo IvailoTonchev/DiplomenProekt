@@ -133,6 +133,9 @@ namespace DiplomenProekt.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EstateStatus")
+                        .HasColumnType("int");
+
                     b.Property<int>("EstateType")
                         .HasColumnType("int");
 
@@ -352,7 +355,7 @@ namespace DiplomenProekt.Data.Migrations
             modelBuilder.Entity("DiplomenProekt.Data.Models.Estate", b =>
                 {
                     b.HasOne("DiplomenProekt.Data.Models.Address", "Address")
-                        .WithMany("Estate")
+                        .WithMany("Estates")
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -424,7 +427,7 @@ namespace DiplomenProekt.Data.Migrations
 
             modelBuilder.Entity("DiplomenProekt.Data.Models.Address", b =>
                 {
-                    b.Navigation("Estate");
+                    b.Navigation("Estates");
                 });
 
             modelBuilder.Entity("DiplomenProekt.Data.Models.Estate", b =>
