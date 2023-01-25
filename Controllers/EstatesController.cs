@@ -13,7 +13,7 @@ namespace DiplomenProekt.Controllers
         {
             this.db = db;
         }
-        public IActionResult Index(int id)
+        public IActionResult Index()
         {
             List<Estate> allEstates = db.Estates
                 .Where(x => x.IsDeleted == false)
@@ -21,10 +21,18 @@ namespace DiplomenProekt.Controllers
             return View(allEstates);
 
 
-            Estate EstateFd = db.Estates.Where(x => x.IsDeleted == false)
-                .Include(r => r.Address).FirstOrDefault(x=>x.Id==id) ;
+        }
 
-            return View(EstateFd);
+
+        public IActionResult Details(int id)
+        {
+            Estate estateFd = db.Estates
+           .Where(x => x.IsDeleted == false)
+           .Include(e=>e.Address)
+           .Include(e => e.Extras)
+           .FirstOrDefault(x=>x.Id==id);
+           
+            return View(estateFd);
         }
     }
 }
