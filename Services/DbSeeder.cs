@@ -94,7 +94,7 @@ namespace DiplomenProekt.Services
             {
                 Price = 250000,
                 EstateType = EstateType.Flat,
-                MainPic = "https://assets-news.housing.com/news/wp-content/uploads/2022/03/15102726/Vastu-for-flats-in-apartments.jpg",
+                MainPic = "https://assets-news.housing.com/news/wp-content/uploads/2022/03/28143140/Difference-between-flat-and-apartment.jpg",
                 Pictures = "https://assets-news.housing.com/news/wp-content/uploads/2022/03/15103409/Vastu-for-flats-in-apartments-04.jpg|https://assets-news.housing.com/news/wp-content/uploads/2022/03/15103452/Vastu-for-flats-in-apartments-05.jpg|https://assets-news.housing.com/news/wp-content/uploads/2022/03/15103603/Vastu-for-flats-in-apartments-06.jpg|https://assets-news.housing.com/news/wp-content/uploads/2022/03/15103811/Vastu-for-flats-in-apartments-08.jpg",
                 Rooms = 5,
                 Description = "Ново строителство,изолация,измазан,дограма",
@@ -108,7 +108,7 @@ namespace DiplomenProekt.Services
             {
                 Price = 130001,
                 EstateType = EstateType.Flat,
-                MainPic = "https://imotstatic4.focus.bg/imot/photosimotbg/1/268/big1/1b167292347780268_nc.jpg",
+                MainPic = "https://www.imoti.net/web/files/obiavi/5657846/main_image/thumb_300x225_view-2a.jpg",
                 Pictures = "https://imotstatic4.focus.bg/imot/photosimotbg/1/268//big1/1b167292347780268_zl.jpg|https://imotstatic4.focus.bg/imot/photosimotbg/1/268//big1/1b167292347780268_UW.jpg|https://imotstatic4.focus.bg/imot/photosimotbg/1/268//big1/1b167292347780268_hD.jpg",
                 Rooms = 4,
                 Description = @"Просторен дневен тракт

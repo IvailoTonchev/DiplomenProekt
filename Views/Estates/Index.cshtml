@@ -1,0 +1,16 @@
+﻿@using DiplomenProekt.Data.Models
+@model List<Estate>
+@foreach (var item in Model)
+{
+    <p> <br>@item.EstateStatus
+        <br>@item.Price bgn
+        <br>@item.EstateType
+        <br><img src="@item.MainPic"/>
+        <br>@item.Description 
+        <br>@item.Rooms rooms 
+        <br><img src="@item.Pictures"/> 
+        <br>@item.Floor floor of maxfloor @item.MaxFloor
+        <br>@item.Area kv.
+        <br>@item.Address  
+    </p>
+}
