@@ -13,6 +13,7 @@ namespace DiplomenProekt.Data.Models
         public bool South { get; set; }
         public bool Elevator { get; set; }
         public bool North { get; set; }
+        public bool Rent { get; set; }
         [ForeignKey(nameof(Estate))]
         public int EstateId { get; set; }
         public virtual Estate Estate { get; set; }

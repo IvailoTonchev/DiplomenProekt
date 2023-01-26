@@ -89,7 +89,7 @@ namespace DiplomenProekt.Services
         }
         private async Task CreateEstatesAsync()
         {
-            var addresses =await dbContext.Addresses.ToArrayAsync();
+            var addresses = await dbContext.Addresses.ToArrayAsync();
             var estate1 = new Estate
             {
                 Price = 250000,
@@ -143,6 +143,8 @@ namespace DiplomenProekt.Services
                 West = true,
                 South = false,
                 North = false,
+                Elevator = true,
+                Rent=false,
                 Estate = estates[0]
             } ,
                 new EstateExtras
@@ -155,6 +157,7 @@ namespace DiplomenProekt.Services
                 South = true,
                 North = false,
                 Elevator=true,
+                Rent=false,
                 Estate = estates[1],
             } ,
             };
