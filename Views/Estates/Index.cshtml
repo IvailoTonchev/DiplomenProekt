@@ -1,16 +1,50 @@
 ﻿@using DiplomenProekt.Data.Models
+@using DiplomenProekt.Helpers
 @model List<Estate>
-@foreach (var item in Model)
-{
-    <p> <br>@item.EstateStatus
-        <br>@item.Price bgn
-        <br>@item.EstateType
-        <br><img src="@item.MainPic"/>
-        <br>@item.Description 
-        <br>@item.Rooms rooms 
-        <br><img src="@item.Pictures"/> 
-        <br>@item.Floor floor of maxfloor @item.MaxFloor
-        <br>@item.Area kv.
-        <br>@item.Address  
-    </p>
-}
+<div class="restorant-index">
+
+    <div>
+        @{
+            var date = DateTime.UtcNow;
+            date = date.AddDays(-10);
+            <p>@GlobalConstants.FormatDate(date)</p>
+
+
+        }
+
+    </div>
+
+
+    @if (Model.Any())
+    {
+        <h1 class="text-danger" r>Here are Estates many many many</h1>
+        <p>@Model.Count() - First Estate is called- @Model.First().EstateType</p>
+    }
+    else
+    {
+        <p>No estates in database!</p>
+    }
+
+    <div class="d-flex flex-wrap justify-content-around">
+        @*   @for (int i = 0; i < 1; i++)
+        {*@
+        @foreach (Estate est in Model)
+        {
+            <div class="card my-4" style="width: 18rem;">
+                <img src="@est.MainPic" class="card-img-top" alt="main-pic">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-utensils"></i> @est.EstateType</h5>
+
+
+                    <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Подробна информация</a>
+                </div>
+            </div>
+        }
+
+        @*  }*@
+    </div>
+
+
+
+
+</div>
