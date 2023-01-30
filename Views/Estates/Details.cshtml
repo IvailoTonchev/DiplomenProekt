@@ -1,31 +1,32 @@
 ﻿@using DiplomenProekt.DTO
-@model DetailsEstateDTO_out
+@using DiplomenProekt.Data.Models
+@model Estate
 @{
-    var images = Model.Estate.Pictures.Split("|").ToArray();
+    var images = @Model.Pictures.Split("|").ToArray();
 }
 <div>
 
     <div class="d-flex justify-content-center w-75 flex-wrap">
-        <h3> Данни за ресторант : @Model.Estate.EstateType</h3>
+        <h3> Type: @Model.EstateType</h3>
         <h3>
             
-                    <br>@Model.Estate.EstateStatus
-                    <br>@Model.Estate.Price bgn
-                    <br>@Model.Estate.EstateType
-                    <br><img src="@Model.Estate.MainPic" />
-                    <br>@Model.Estate.Description
-                    <br>@Model.Estate.Rooms rooms
-                    <br><img src="@Model.Estate.Pictures" />
-                    <br>@Model.Estate.Floor floor of maxfloor @Model.Estate.MaxFloor
-                    <br>@Model.Estate.Area kv.
-                    <br>@Model.Estate.Address
+                    <br>@Model.EstateStatus
+                    <br>@Model.Price bgn
+                    <br>@Model.EstateType
+                    <br><img src="@Model.MainPic" />
+                    <br>@Model.Description
+                    <br>@Model.Rooms rooms
+                    <br><img src="@Model.Pictures" />
+                    <br>@Model.Floor floor of maxfloor @Model.MaxFloor
+                    <br>@Model.Area kv.
+                    <br>@Model.Address
                
             }
         </h3>
         <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="@Model.Estate.MainPic" class="d-block w-100" alt="...">
+                    <img src="@Model.MainPic" class="d-block w-100" alt="...">
                 </div>
 
                 @foreach (string pic in images)
@@ -45,10 +46,7 @@
             </button>
         </div>
 
-@foreach (var usr in Model.AllUsersData)
-        {
-            <p>@usr.UserName | @usr.Id</p>
-        }
+
     </div>
    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
@@ -56,14 +54,14 @@
 
         <form method="get" asp-action="Edit">
             <fieldset>
-                <input type="hidden" name="id" value="@Model.Estate.Id" />
+                <input type="hidden" name="id" value="@Model.Id" />
                 <button type="submit" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> </button>
             </fieldset>
         </form>
 
         <form method="post" asp-action="Delete">
             <fieldset>
-                <input type="hidden" name="id" value="@Model.Estate.Id" />            
+                <input type="hidden" name="id" value="@Model.Id" />            
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </button>
             </fieldset>
         </form>

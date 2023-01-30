@@ -108,7 +108,7 @@ namespace DiplomenProekt.Services
             {
                 Price = 130001,
                 EstateType = EstateType.Flat,
-                MainPic = "https://www.imoti.net/web/files/obiavi/5657846/main_image/thumb_300x225_view-2a.jpg",
+                MainPic = "https://cdn.confident-group.com/wp-content/uploads/2021/08/26224309/oakwood_gallery_image.jpg",
                 Pictures = "https://imotstatic4.focus.bg/imot/photosimotbg/1/268//big1/1b167292347780268_zl.jpg|https://imotstatic4.focus.bg/imot/photosimotbg/1/268//big1/1b167292347780268_UW.jpg|https://imotstatic4.focus.bg/imot/photosimotbg/1/268//big1/1b167292347780268_hD.jpg",
                 Rooms = 4,
                 Description = @"Просторен дневен тракт

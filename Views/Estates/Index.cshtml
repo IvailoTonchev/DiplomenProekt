@@ -1,7 +1,7 @@
 ﻿@using DiplomenProekt.Data.Models
 @using DiplomenProekt.Helpers
 @model List<Estate>
-<div class="restorant-index">
+<div class="estate-index">
 
     <div>
         @{
@@ -17,8 +17,7 @@
 
     @if (Model.Any())
     {
-        <h1 class="text-danger" r>Here are Estates many many many</h1>
-        <p>@Model.Count() - First Estate is called- @Model.First().EstateType</p>
+        <h1 class="text-danger" r>Here are the Estates </h1>
     }
     else
     {
@@ -33,7 +32,7 @@
             <div class="card my-4" style="width: 18rem;">
                 <img src="@est.MainPic" class="card-img-top" alt="main-pic">
                 <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-utensils"></i> @est.EstateType</h5>
+                    <h5 class="card-title"><i class="fas fa-utensils"></i> @est.EstateType/@est.EstateStatus</h5>
 
 
                     <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Подробна информация</a>
