@@ -16,12 +16,11 @@
                     <br><img src="@Model.MainPic" />
                     <br>@Model.Description
                     <br>@Model.Rooms rooms
-                    <br><img src="@Model.Pictures" />
                     <br>@Model.Floor floor of maxfloor @Model.MaxFloor
                     <br>@Model.Area kv.
-                    <br>@Model.Address
+            <br><i class="fa-solid fa-map-location-dot"></i> @Model.Address.Neighbourhood @Model.Address.City
                
-            }
+            
         </h3>
         <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
             <div class="carousel-inner">
