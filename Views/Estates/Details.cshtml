@@ -2,23 +2,45 @@
 @using DiplomenProekt.Data.Models
 @model Estate
 @{
-    var images = @Model.Pictures.Split("|").ToArray();
+    var images = Model.Pictures.Split("|").ToArray();
+    string[] addressImages = Model.Address.Pics.Split("|").ToArray();
 }
 <div>
 
     <div class="d-flex justify-content-center w-75 flex-wrap">
         <h3> Type: @Model.EstateType</h3>
         <h3>
-            
-                    <br>@Model.EstateStatus
-                    <br>@Model.Price bgn
-                    <br>@Model.EstateType
+
+
+            <br>@Model.EstateStatus    @if (Model.EstateStatus == EstateStatus.Available)
+            {
+                <i class="fa-solid fa-check"> </i>
+            }
+            else
+            {
+                <i class="fa-solid fa-xmark"></i>
+            }
+                    <br>@Model.Price bgn                  
                     <br><img src="@Model.MainPic" />
                     <br>@Model.Description
                     <br>@Model.Rooms rooms
                     <br>@Model.Floor floor of maxfloor @Model.MaxFloor
                     <br>@Model.Area kv.
-            <br><i class="fa-solid fa-map-location-dot"></i> @Model.Address.Neighbourhood @Model.Address.City
+                    <br>Extras
+                    <br>Rent :@Model.Extras.Rent
+                    <br>Elevator :@Model.Extras.Elevator
+                    <br>Electricity :@Model.Extras.HasElectricity
+                    <br>Water :@Model.Extras.HasWater
+                    <br>Gas :@Model.Extras.HasGas
+                    <br>EastSide :@Model.Extras.East
+                    <br>NorthSide :@Model.Extras.North
+                    <br>WestSide :@Model.Extras.West
+                    <br>SouthSide :@Model.Extras.South
+            <br>Address Info
+            <br><i class="fa-solid fa-map-location-dot"></i> @Model.Address.Neighbourhood 
+            <br>@Model.Address.City
+            <br>@Model.Address.Description
+            
                
             
         </h3>
@@ -47,6 +69,15 @@
 
 
     </div>
+            <div class="d-flex flex-wrap">
+            @foreach (string pic in addressImages)
+            {
+                <br>
+                <img class="rounded-pill w-50 p-2" src="@pic" />
+               
+      
+            }
+            </div>
    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
     <div class="d-flex justify-content-between w-50 mx-auto mt-4">
