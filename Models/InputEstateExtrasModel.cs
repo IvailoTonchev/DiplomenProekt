@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using DiplomenProekt.Data.Models;
 
-namespace DiplomenProekt.Data.Models
+namespace DiplomenProekt.Models
 {
-    public class EstateExtras
+    public class InputEstateExtrasModel
     {
         public int Id { get; set; }
         public bool HasElectricity { get; set; }
@@ -14,9 +14,8 @@ namespace DiplomenProekt.Data.Models
         public bool Elevator { get; set; }
         public bool North { get; set; }
         public bool Rent { get; set; }
-        [ForeignKey(nameof(Estate))]
-        public int EstateId { get; set; }
-        public virtual Estate Estate { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; internal set; }
+        public Estate Estate { get; internal set; }
+        public int EstateId { get; internal set; }
     }
 }

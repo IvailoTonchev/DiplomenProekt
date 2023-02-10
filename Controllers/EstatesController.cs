@@ -1,14 +1,17 @@
 ﻿using DiplomenProekt.Data;
 using DiplomenProekt.Data.Models;
+using DiplomenProekt.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DiplomenProekt.Controllers
 {
     public class EstatesController : Controller
     {
         private readonly ApplicationDbContext db;
-
         public EstatesController(ApplicationDbContext db)
         {
             this.db = db;
@@ -34,5 +37,37 @@ namespace DiplomenProekt.Controllers
            
             return View(estateFd);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return this.View();
+        }
+        [HttpPost]
+        public IActionResult Create(InputEstateModel model)
+        {
+            var estate = new Estate { Id = model.Id,
+            EstateStatus= (Data.Models.EstateStatus)model.EstateStatus,
+            EstateType= (Data.Models.EstateType)model.EstateType,
+            Rooms=model.Rooms,
+            Price=model.Price,
+            Pictures=model.Pictures,
+            MaxFloor=model.MaxFloor,
+            MainPic=model.MainPic,
+            Floor=model.Floor,
+            Description=model.Description,
+            Area=model.Area,
+            AddressId=model.AddressId,
+            IsDeleted=model.IsDeleted,
+            Extras=model.Extras,
+            ExtrasId=model.ExtrasId,
+            Address=model.Address,
+            };
+            db.Estates.Add(estate);
+            db.SaveChanges();
+
+            return this.Redirect("Index");
+        }
+
+
     }
 }
