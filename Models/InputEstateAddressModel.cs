@@ -9,6 +9,8 @@ namespace DiplomenProekt.Models
         public string Neighbourhood { get; set; }
         public string Pics { get; set; }
         public string Description { get; set; }
+        public bool IsDeleted { get; internal set; }
+        public ICollection<Estate> Estates { get; internal set; }
     }
     public enum Town { Search = 0, Shumen = 1, Varna = 2, Sofia = 3 }
 }
