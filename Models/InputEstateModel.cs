@@ -1,5 +1,6 @@
 ﻿using DiplomenProekt.Data.Models;
 
+
 namespace DiplomenProekt.Models
 {
     public class InputEstateModel
@@ -21,6 +22,5 @@ namespace DiplomenProekt.Models
         public int ExtrasId { get; internal set; }
         public Address Address { get; internal set; }
     }
-    public enum EstateType { Unchosen = 0, Garage = 1, Flat = 2, House = 3, Industrial = 4 }
-    public enum EstateStatus { Available = 0, Sold = 1, Taken = 2 }
+
 }

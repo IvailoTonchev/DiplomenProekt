@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace DiplomenProekt.Data.Models
 {
     public class Estate
@@ -22,6 +23,4 @@ namespace DiplomenProekt.Data.Models
         public virtual EstateExtras Extras { get; set; }
         public bool IsDeleted { get; set; }
     }
-    public enum EstateType {Unchosen=0,Garage=1,Flat=2,House=3,Industrial=4 }
-    public enum EstateStatus {Available=0,Sold=1,Taken=2 }
 }

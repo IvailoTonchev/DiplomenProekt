@@ -1,0 +1,58 @@
+﻿@using DiplomenProekt.Data.Models
+
+
+@model IEnumerable<Estate>
+
+<div class="estate-index">
+
+    <div>
+        @{
+            var date = DateTime.UtcNow;
+            date = date.AddDays(-10);
+            <p>@GlobalConstants.FormatDate(date)</p>
+
+
+        }
+
+    </div>
+
+
+    @if (Model.Any())
+    {
+        <h1 class="text-danger" r>Here are the Estates </h1>
+    }
+    else
+    {
+        <p>No estates in database!</p>
+    }
+
+    <div class="d-flex flex-wrap justify-content-around">
+        @*   @for (int i = 0; i < 1; i++)
+        {*@
+        @foreach (Estate est in Model)
+        {
+            <div class="card my-4" style="width: 18rem;">
+                <img src="@est.MainPic" class="card-img-top" alt="main-pic">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fa-solid fa-house"></i> @est.EstateType/@est.EstateStatus
+                        @if (est.EstateStatus == EstateStatus.Available)
+                        {
+                            <i class="fa-solid fa-check"> </i>
+                        }
+                        else
+                        {
+                            <i class="fa-solid fa-xmark"></i>
+                        }
+
+                        <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Подробна информация</a>
+                        <a asp-action="Edit" asp-route-id="@est.Id" class="btn btn-primary">Редактиране</a>
+                        <a asp-action="Delete" asp-route-id="@est.Id" class="btn btn-danger">Изтриване</a>
+
+
+
+                </div>
+            </div>
+        }
+    </div>
+</div>

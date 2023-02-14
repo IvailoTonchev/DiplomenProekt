@@ -1,8 +1,9 @@
-﻿namespace DiplomenProekt.Data.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace DiplomenProekt.Data.Models
 {
-    public class AppUser
+    public class AppUser:IdentityUser
     {
-        public string UserName { get; internal set; }
-        public string Email { get; internal set; }
+    
     }
 }
