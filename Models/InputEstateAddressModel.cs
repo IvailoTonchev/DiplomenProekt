@@ -12,5 +12,4 @@ namespace DiplomenProekt.Models
         public bool IsDeleted { get; internal set; }
         public ICollection<Estate> Estates { get; internal set; }
     }
-    public enum Town { Search = 0, Shumen = 1, Varna = 2, Sofia = 3 }
 }

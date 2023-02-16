@@ -2,7 +2,7 @@
 using DiplomenProekt.Data.Models;
 using DiplomenProekt.Models;
 using Microsoft.AspNetCore.Mvc;
-using Town = DiplomenProekt.Data.Models.Town;
+
 
 namespace DiplomenProekt.Controllers
 {
@@ -19,7 +19,7 @@ namespace DiplomenProekt.Controllers
             var address = db.Addresses.Select(x => new InputEstateAddressModel
             {
                 Id = x.Id,
-                City = (Models.Town)x.City,
+                City =x.City,
                 Description = x.Description,
                 Neighbourhood = x.Neighbourhood,
                 Pics = x.Pics,

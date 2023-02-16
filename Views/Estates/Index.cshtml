@@ -1,6 +1,8 @@
 ﻿@using DiplomenProekt.Data.Models
-@using DiplomenProekt.Helpers
-@model List<Estate>
+
+
+@model IEnumerable<Estate>
+
 <div class="estate-index">
 
     <div>
@@ -32,27 +34,25 @@
             <div class="card my-4" style="width: 18rem;">
                 <img src="@est.MainPic" class="card-img-top" alt="main-pic">
                 <div class="card-body">
-                    <h5 class="card-title"><i class="fa-solid fa-house"></i> @est.EstateType/@est.EstateStatus
+                    <h5 class="card-title">
+                        <i class="fa-solid fa-house"></i> @est.EstateType/@est.EstateStatus
                         @if (est.EstateStatus == EstateStatus.Available)
                         {
                             <i class="fa-solid fa-check"> </i>
                         }
-                        else 
+                        else
                         {
                             <i class="fa-solid fa-xmark"></i>
                         }
 
+                        <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Подробна информация</a>
+                        <a asp-action="Edit" asp-route-id="@est.Id" class="btn btn-primary">Редактиране</a>
+                        <a asp-action="Delete" asp-route-id="@est.Id" class="btn btn-danger">Изтриване</a>
 
 
-                    <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Подробна информация</a>
+
                 </div>
             </div>
         }
-
-        @*  }*@
     </div>
-
-
-
-
 </div>

@@ -20,7 +20,7 @@ namespace DiplomenProekt.DTO
         public int MaxFloor { get; set; }
 
         //create new extras for this estate
-        #region Estras
+        #region Extras
         public bool HasElectricity { get; set; }
         public bool HasWater { get; set; }
         public bool HasGas { get; set; }

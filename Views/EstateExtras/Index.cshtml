@@ -1,5 +1,103 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<DiplomenProekt.Data.Models.EstateExtras>
+
 @{
+    Layout = null;
 }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HasElectricity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasWater)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasGas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.East)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.West)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.South)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elevator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.North)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasElectricity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasWater)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasGas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.East)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.West)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.South)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Elevator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.North)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estate.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
