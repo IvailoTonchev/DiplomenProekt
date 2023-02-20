@@ -37,6 +37,7 @@ namespace DiplomenProekt.Controllers
 
             var estate = await _context.Estates
                 .Include(e => e.Address)
+                .Include(e => e.Extras)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (estate == null)
             {
