@@ -31,12 +31,7 @@
                 <label asp-for="Rooms" class="control-label"></label>
                 <input asp-for="Rooms" class="form-control" />
                 <span asp-validation-for="Rooms" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AddressId" class="control-label"></label>
-                <select asp-for="AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
-                <span asp-validation-for="AddressId" class="text-danger"></span>
-            </div>
+            </div>           
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
@@ -87,6 +82,58 @@
                 <input asp-for="ExtrasId" class="form-control" />
                 <span asp-validation-for="ExtrasId" class="text-danger"></span>
             </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.HasElectricity" /> @Html.DisplayNameFor(model => model.HasElectricity)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="HasWater" /> @Html.DisplayNameFor(model => model.HasWater)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="HasGas" /> @Html.DisplayNameFor(model => model.HasGas)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="East" /> @Html.DisplayNameFor(model => model.East)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="West" /> @Html.DisplayNameFor(model => model.West)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="South" /> @Html.DisplayNameFor(model => model.South)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Elevator" /> @Html.DisplayNameFor(model => model.Elevator)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="North" /> @Html.DisplayNameFor(model => model.North)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Rent" /> @Html.DisplayNameFor(model => model.Rent)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstateId" class="control-label"></label>
+                    <select asp-for="EstateId" class="form-control" asp-items="ViewBag.EstateId"></select>
+                    <span asp-validation-for="EstateId" class="text-danger"></span>
+                </div>
+
+
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)

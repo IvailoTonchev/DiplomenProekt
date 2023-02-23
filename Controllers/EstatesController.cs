@@ -50,7 +50,7 @@ namespace DiplomenProekt.Controllers
         // GET: Estates1/Create
         public IActionResult Create()
         {
-            ViewData["Address"] = _context.Addresses.Where(x=>!x.IsDeleted).Select(a=>new AddressChoiseDTO(a.Id,a.City.ToString(),a.Neighbourhood)).ToList();
+            ViewData["Address"] = _context.Addresses.Where(x=>!x.IsDeleted).Select(a=>new AddressChoiseDTO(a.Id,a.City.ToString(),a.Neighbourhood,a.Description,a.Pics)).ToList();
             return View();
         }
 

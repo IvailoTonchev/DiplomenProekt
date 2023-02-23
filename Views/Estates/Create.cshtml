@@ -11,8 +11,8 @@
 
     <h2>Estate</h2>
     <hr />
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row" d-flex justify-content-center">
+        <div class="col-md-8">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -29,17 +29,7 @@
                     <label asp-for="Rooms" class="control-label"></label>
                     <input asp-for="Rooms" class="form-control" />
                     <span asp-validation-for="Rooms" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="AddressId" class="control-label"> Адрес карта сложи тука!</label>
-                    <select asp-for="AddressId" class="form-control">
-                        @foreach (var add in (List<AddressChoiseDTO>)ViewData["Address"])
-                        {
-                            <option value="@add.Id"> @add.Town - @add.Neighbourhood</option>
-                        }
-
-                    </select>
-                </div>
+                </div>              
                 <div class="form-group">
                     <label asp-for="Description" class="control-label"></label>
                     <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
@@ -139,7 +129,33 @@
                     </label>
                 </div>
 
-
+                <h3>Address</h3>
+                <hr />
+                            <div class="form-group">
+                                <label asp-for="@Model.Address.City" class="control-label"></label>
+                                <select asp-for="@Model.Address.City" class="form-control">
+                            @foreach (var item in Enum.GetValues<Town>())
+                            {
+                                <option value="@((int)item)">@item.ToString()</option>
+                            }
+                            </select>
+                                <span asp-validation-for="@Model.Address.City" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Address.Neighbourhood" class="control-label"></label>
+                            <input asp-for="@Model.Address.Neighbourhood" class="form-control" />
+                            <span asp-validation-for="@Model.Address.Neighbourhood" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Address.Pics" class="control-label"></label>
+                                <textarea asp-for="@Model.Address.Pics" rows="4" cols="50" class="form-control"></textarea>
+                                <span asp-validation-for="@Model.Address.Pics" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Address.Description" class="control-label"></label>
+                            <textarea asp-for="@Model.Address.Description" rows="4" cols="50" class="form-control"></textarea>
+                                <span asp-validation-for="@Model.Address.Description" class="text-danger"></span>
+                            </div>
 
 
 
