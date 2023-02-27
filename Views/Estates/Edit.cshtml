@@ -10,6 +10,193 @@
 </head>
 <body>
 
+    <h2>Estate</h2>
+    <hr />
+    <div class="row" d-flex justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="MainPic" class="control-label"></label>
+                    <textarea asp-for="MainPic" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="MainPic" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Rooms" class="control-label"></label>
+                    <input asp-for="Rooms" class="form-control" />
+                    <span asp-validation-for="Rooms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pictures" class="control-label"></label>
+                    <textarea asp-for="Pictures" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="Pictures" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstateType" class="control-label"></label>
+                    <select asp-for="EstateType" class="form-control">
+                        @foreach (var item in Enum.GetValues<EstateType>())
+                        {
+                            <option value="@((int)item)">@item.ToString()</option>
+                        }
+                    </select>
+                    <span asp-validation-for="EstateType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstateStatus" class="control-label"></label>
+                    <select asp-for="EstateStatus" class="form-control">
+                        @foreach (var item in Enum.GetValues<EstateStatus>())
+                        {
+                            <option value="@((int)item)">@item.ToString()</option>
+                        }
+                    </select>
+                    <span asp-validation-for="EstateStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Area" class="control-label"></label>
+                    <input asp-for="Area" class="form-control" type="number" step="0.1" min="1" />
+                    <span asp-validation-for="Area" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Floor" class="control-label"></label>
+                    <input asp-for="Floor" class="form-control" />
+                    <span asp-validation-for="Floor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxFloor" class="control-label"></label>
+                    <input asp-for="MaxFloor" class="form-control" />
+                    <span asp-validation-for="MaxFloor" class="text-danger"></span>
+                </div>
+
+
+
+
+
+
+                <h3>Extras</h3>
+                <div class="form-group form-check">
+                    <label asp-for="@Model.Extras.HasElectricity" class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.HasElectricity" /><i class="fa-solid fa-bolt-lightning"></i> Electricity
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.HasWater" /> Water
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.HasGas" /> Gas
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.East" /> East
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.West" /> West
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.South" /> South
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.North" /> North
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.Elevator" /> Elevator
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="@Model.Extras.Rent" /> Rent
+                    </label>
+                </div>
+
+                <h3>Address</h3>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="@Model.Address.City" class="control-label"></label>
+                    <select asp-for="@Model.Address.City" class="form-control">
+                        @foreach (var item in Enum.GetValues<Town>())
+                        {
+                            <option value="@((int)item)">@item.ToString()</option>
+                        }
+                    </select>
+                    <span asp-validation-for="@Model.Address.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Address.Neighbourhood" class="control-label"></label>
+                    <input asp-for="@Model.Address.Neighbourhood" class="form-control" />
+                    <span asp-validation-for="@Model.Address.Neighbourhood" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Address.Pics" class="control-label"></label>
+                    <textarea asp-for="@Model.Address.Pics" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.Address.Pics" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Address.Description" class="control-label"></label>
+                    <textarea asp-for="@Model.Address.Description" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.Address.Description" class="text-danger"></span>
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+    </body>
+    </html>
+
+
+
+
+
+@*
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
 <h4>Estate</h4>
 <hr />
 <div class="row">
@@ -155,3 +342,4 @@
 }
 </body>
 </html>
+*@

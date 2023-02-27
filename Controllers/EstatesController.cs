@@ -81,7 +81,10 @@ namespace DiplomenProekt.Controllers
                 return NotFound();
             }
 
-            var estate = await _context.Estates.FindAsync(id);
+            var estate = await _context.Estates
+                .Include(e=>e.Extras)
+                .Include(e=>e.Address)
+                .FirstOrDefaultAsync(e=>e.Id==id);
             if (estate == null)
             {
                 return NotFound();
