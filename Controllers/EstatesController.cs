@@ -98,7 +98,9 @@ namespace DiplomenProekt.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MainPic,Price,Rooms,AddressId,Description,Pictures,EstateType,EstateStatus,Area,Floor,MaxFloor,ExtrasId,IsDeleted")] Estate estate)
+        public async Task<IActionResult> Edit(int id,
+           // [Bind("Id,MainPic,Price,Rooms,AddressId,Description,Pictures,EstateType,EstateStatus,Area,Floor,MaxFloor,ExtrasId,IsDeleted")] 
+        Estate estate)
         {
             if (id != estate.Id)
             {
@@ -144,6 +146,7 @@ namespace DiplomenProekt.Controllers
             }
 
             var estate = await _context.Estates
+                .Include(e => e.Extras)
                 .Include(e => e.Address)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (estate == null)
