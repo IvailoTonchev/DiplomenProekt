@@ -1,5 +1,7 @@
 ﻿@model DiplomenProekt.Data.Models.Estate
-
+@{
+    var neibs = ViewData["Neigbhourhoods"] as List<AddressChoiseDTO>;
+}
 
 <!DOCTYPE html>
 
@@ -133,30 +135,16 @@
                 <h3>Address</h3>
                 <hr />
                 <div class="form-group">
-                    <label asp-for="@Model.Address.City" class="control-label"></label>
-                    <select asp-for="@Model.Address.City" class="form-control">
-                        @foreach (var item in Enum.GetValues<Town>())
-                        {
-                            <option value="@((int)item)">@item.ToString()</option>
-                        }
-                    </select>
-                    <span asp-validation-for="@Model.Address.City" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Address.Neighbourhood" class="control-label"></label>
-                    <input asp-for="@Model.Address.Neighbourhood" class="form-control" />
-                    <span asp-validation-for="@Model.Address.Neighbourhood" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Address.Pics" class="control-label"></label>
-                    <textarea asp-for="@Model.Address.Pics" rows="4" cols="50" class="form-control"></textarea>
-                    <span asp-validation-for="@Model.Address.Pics" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Address.Description" class="control-label"></label>
-                    <textarea asp-for="@Model.Address.Description" rows="4" cols="50" class="form-control"></textarea>
-                    <span asp-validation-for="@Model.Address.Description" class="text-danger"></span>
-                </div>
+                    <h3>Registered Neibhourhood</h3>
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="@Model.Address.City" class="control-label"> Neibhourhood:</label>
+                        <select asp-for="@Model.AddressId" class="form-control">
+                            @foreach (var n in neibs)
+                            {
+                                <option value="@n.Id">@n.Town.ToString() - @n.Neighbourhood</option>
+                            }
+                        </select>
 
 
 
