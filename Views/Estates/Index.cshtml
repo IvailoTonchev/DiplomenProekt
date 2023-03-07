@@ -5,16 +5,6 @@
 
 <div class="estate-index">
 
-    <div>
-        @{
-            var date = DateTime.UtcNow;
-            date = date.AddDays(-10);
-            <p>@GlobalConstants.FormatDate(date)</p>
-
-
-        }
-
-    </div>
 
 
     @if (Model.Any())
@@ -45,9 +35,8 @@
                             <i class="fa-solid fa-xmark"></i>
                         }
 
-                        <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Подробна информация</a>
-                        <a asp-action="Edit" asp-route-id="@est.Id" class="btn btn-primary">Редактиране</a>
-                        <a asp-action="Delete" asp-route-id="@est.Id" class="btn btn-danger">Изтриване</a>
+                        <a asp-action="Details" asp-route-id="@est.Id" class="btn btn-warning">Information</a>
+                        
 
 
 
