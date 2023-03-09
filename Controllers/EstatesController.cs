@@ -104,7 +104,7 @@ namespace DiplomenProekt.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
-        int id, [Bind("Id,MainPic,Price,Rooms,AddressId,Description,Pictures,EstateType,EstateStatus,Area,Floor,MaxFloor,ExtrasId,IsDeleted")] 
+        int id, [Bind("Id,MainPic,Price,Rooms,AddressId,Description,Pictures,EstateType,EstateStatus,Area,Floor,MaxFloor,Extras")] 
         Estate estate)
         {
             if (id != estate.Id)
@@ -112,10 +112,11 @@ namespace DiplomenProekt.Controllers
                 return NotFound();
             }
 
+            estate.EstateExtrasId = estate.Extras.Id;
             //estate.Extras = _context.EstateExtras.FirstOrDefault(x => x.Id == estate.ExtrasId);
             //estate.Address = _context.Addresses.FirstOrDefault(x => x.Id == estate.AddressId);
             ModelState.Remove("Address");
-            ModelState.Remove("Extras");
+            ModelState.Remove("Extras.Estate");
             //ModelState.Remove("Address.Estates");
             //ModelState.Remove("Extras.Estate");
 
@@ -126,8 +127,9 @@ namespace DiplomenProekt.Controllers
                 {
             //        _context.Remove(estate);
                 //    _context.Remove(estate.Extras);
-                     _context.Update(estate);
                      _context.Update(estate.Extras);
+                     _context.Update(estate);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -141,7 +143,7 @@ namespace DiplomenProekt.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", new { id = estate.Id });
             }
             else
             {

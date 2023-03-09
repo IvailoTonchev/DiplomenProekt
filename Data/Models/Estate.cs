@@ -19,7 +19,7 @@ namespace DiplomenProekt.Data.Models
         public int Floor { get; set; }
         public int MaxFloor { get; set; }
         [ForeignKey(nameof(EstateExtras))]
-        public int ExtrasId { get; set; }
+        public int EstateExtrasId { get; set; }
         public virtual EstateExtras Extras { get; set; }
         public bool IsDeleted { get; set; }
     }
