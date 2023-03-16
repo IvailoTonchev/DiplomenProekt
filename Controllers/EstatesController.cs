@@ -46,6 +46,24 @@ namespace DiplomenProekt.Controllers
 
             return View(estate);
         }
+        public IActionResult CreateAddress()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateAddress(Address address)
+        {
+          //  ModelState.Remove("Estates");
+            if (ModelState.IsValid)
+            {
+                _context.Add(address);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }           
+            return View(address);
+        }
+        
 
         // GET: Estates1/Create
         public IActionResult Create()
