@@ -78,11 +78,12 @@ namespace DiplomenProekt.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-          [Bind("Id,MainPic,Price,Rooms,AddressId,Description,Pictures,EstateType,EstateStatus,Area,Floor,MaxFloor,ExtrasId,IsDeleted")] 
+          [Bind("Id,MainPic,Price,Rooms,AddressId,Description,Pictures,EstateType,EstateStatus,Area,Floor,MaxFloor,Extras")] 
         Estate estate)
         {
             ModelState.Remove("Address");
             ModelState.Remove("Extras");
+            ModelState.Remove("Extras.Estate");
             if (ModelState.IsValid)
             {
                 _context.Add(estate);
