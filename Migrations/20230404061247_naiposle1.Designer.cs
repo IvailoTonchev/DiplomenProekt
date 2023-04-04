@@ -9,17 +9,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DiplomenProekt.Data.Migrations
+namespace DiplomenProekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230123093030_statusadd")]
-    partial class statusadd
+    [Migration("20230404061247_naiposle1")]
+    partial class naiposle1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -38,6 +38,9 @@ namespace DiplomenProekt.Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Neighbourhood")
                         .IsRequired()
@@ -135,13 +138,13 @@ namespace DiplomenProekt.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EstateExtrasId")
+                        .HasColumnType("int");
+
                     b.Property<int>("EstateStatus")
                         .HasColumnType("int");
 
                     b.Property<int>("EstateType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExtrasId")
                         .HasColumnType("int");
 
                     b.Property<int>("Floor")
@@ -200,7 +203,13 @@ namespace DiplomenProekt.Data.Migrations
                     b.Property<bool>("HasWater")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("North")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Rent")
                         .HasColumnType("bit");
 
                     b.Property<bool>("South")

@@ -4,18 +4,16 @@ using DiplomenProekt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DiplomenProekt.Data.Migrations
+namespace DiplomenProekt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230220090653_magia3")]
-    partial class magia3
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,13 +136,13 @@ namespace DiplomenProekt.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EstateExtrasId")
+                        .HasColumnType("int");
+
                     b.Property<int>("EstateStatus")
                         .HasColumnType("int");
 
                     b.Property<int>("EstateType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExtrasId")
                         .HasColumnType("int");
 
                     b.Property<int>("Floor")

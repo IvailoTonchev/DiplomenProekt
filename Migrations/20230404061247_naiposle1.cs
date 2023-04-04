@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace DiplomenProekt.Data.Migrations
+namespace DiplomenProekt.Migrations
 {
-    public partial class magia3 : Migration
+    public partial class naiposle1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

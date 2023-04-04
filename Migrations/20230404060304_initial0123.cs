@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace DiplomenProekt.Data.Migrations
+namespace DiplomenProekt.Migrations
 {
-    public partial class init001 : Migration
+    public partial class initial0123 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
