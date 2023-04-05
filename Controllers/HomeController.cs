@@ -33,7 +33,7 @@ namespace DiplomenProekt.Controllers
             return Redirect("Index");
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
 
             return View();

@@ -1,5 +1,92 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Home Page";
 }
+
+
+<!-- Bootstrap -->
+@* <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+@section CSS{
+    <link href="~/resourses-index/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/resourses-index/css/flexslider.css" rel="stylesheet" type="text/css">
+    <link href="~/resourses-index/icons/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="~/resourses-index/icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+
+    <!--revolution slider setting css-->
+    <link href="~/resourses-index/rs-plugin/css/settings.css" rel="stylesheet">
+    <link href="~/resourses-index/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+    }
+<body data-spy="scroll" data-target=".navbar" data-offset="80">
+
+    <div class="fullwidthbanner" id="home">
+        <div class="tp-banner">
+            <ul>
+                <!-- SLIDE 1 -->
+                <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
+                    <!-- MAIN IMAGE -->
+                    <img src="~/resourses-index/images/bg-1.jpg" alt="desk" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                    <!-- LAYERS -->
+                    <!-- LAYER NR. 1 -->
+                    <div class="tp-caption slider-title" data-x="center" data-y="center" data-voffset="-30" data-speed="500" data-start="1200" data-easing="Power4.easeInOut">
+                        We are <span>BulBroker</span>
+                    </div> <!-- /tp-caption -->
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption slider-caption" data-x="center" data-y="center" data-voffset="40" data-speed="500" data-start="1800" data-easing="Power4.easeInOut" data-captionhidden="on">
+                        <br> We help our clients to make the best decision in their life .
+                        <br> Our company gives the best of it to make the right decision for our clients.
+                        <br> We offer estates for every type of person,so u can choose between a lot of options.
+                        <br> You can contact us for more information about your decision in life.
+                    </div> <!-- /tp-caption -->
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption slider-button scroll-to" data-x="center" data-y="center" data-voffset="120" data-speed="500" data-start="2400" data-easing="Power4.easeInOut" data-captionhidden="on">
+                      
+                    </div> <!-- /tp-caption -->
+                </li>
+                <!-- SLIDE 2 -->
+                <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
+                    <!-- MAIN IMAGE -->
+                    <img src="~/resourses-index/images/bg-3.jpg" alt="desk" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+
+                    <!-- LAYERS -->
+                    <!-- LAYER NR. 1 -->
+                    <div class="tp-caption slider-title" data-x="center" data-y="center" data-voffset="-30" data-speed="500" data-start="1200" data-easing="Power4.easeInOut">
+                        We are <span>BulBroker</span>
+                    </div> <!-- /tp-caption -->
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption slider-caption" data-x="center" data-y="center" data-voffset="40" data-speed="500" data-start="1800" data-easing="Power4.easeInOut" data-captionhidden="on">
+                        We help our clients to make the best decision in their life .
+
+                        <br>Our company gives the best of it to make the right decision for our clients.
+                        <br>We offer estates for every type of person,so u can choose between a lot of options.
+                        <br>You can contact us for more information about your decision in life.
+                    </div> <!-- /tp-caption -->
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption slider-button scroll-to" data-x="center" data-y="center" data-voffset="120" data-speed="500" data-start="2400" data-easing="Power4.easeInOut" data-captionhidden="on">
+                        
+                    </div> <!-- /tp-caption -->
+                </li>
+                <!-- SLIDE 3 -->
+            </ul>
+        </div>
+    </div><!--full width banner-->
+
+
+
+    @section Scripts{
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="~/resourses-index/js/jquery.min.js" type="text/javascript"></script>
+        <script src="~/resourses-index/js/moderniz.min.js" type="text/javascript"></script>
+        <script src="~/resourses-index/js/jquery.easing.1.3.js" type="text/javascript"></script>
+        <!-- bootstrap js-->
+        @*    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>*@
+        <script type="text/javascript" src="~/resourses-index/js/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="~/resourses-index/js/parallax.min.js"></script>
+        <script type="text/javascript" src="~/resourses-index/js/jquery.prettyPhoto.js"></script>
+        <script type="text/javascript" src="~/resourses-index/js/jqBootstrapValidation.js"></script>
+        <!--revolution slider scripts-->
+        <script src="~/resourses-index/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
+        <script src="~/resourses-index/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+        <script src="~/resourses-index/js/template.js" type="text/javascript"></script>
+    }
+
+</body>
