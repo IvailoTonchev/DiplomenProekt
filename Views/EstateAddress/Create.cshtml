@@ -1,62 +1,61 @@
 ﻿@model DiplomenProekt.Data.Models.Address
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>CreateAddress</title>
 </head>
 <body>
 
-<h4>Address</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <select asp-for="City" class="form-control"></select>
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Neighbourhood" class="control-label"></label>
-                <input asp-for="Neighbourhood" class="form-control" />
-                <span asp-validation-for="Neighbourhood" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Pics" class="control-label"></label>
-                <input asp-for="Pics" class="form-control" />
-                <span asp-validation-for="Pics" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <h2>Address</h2>
+    <hr />
+    <div class="row" d-flex justify-content-center">
+        <div class="col-md-8">
+            <form method="post" asp-action="CreateAddress">
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <select asp-for="City" class="form-control">
+                        @foreach (var item in Enum.GetValues<Town>())
+                        {
+                            <option value="@((int)item)">@item.ToString()</option>
+                        }
+                    </select>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <span asp-validation-for="@Model.City" class="text-danger"></span>
+
+                <div class="form-group">
+                    <label asp-for="@Model.Neighbourhood" class="control-label"></label>
+                    <input asp-for="@Model.Neighbourhood" class="form-control" />
+                    <span asp-validation-for="@Model.Neighbourhood" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Pics" class="control-label"></label>
+                    <textarea asp-for="@Model.Pics" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.Pics" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description" class="control-label"></label>
+                    <textarea asp-for="@Model.Description" rows="4" cols="50" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create Address" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
-</body>
-</html>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+    </body>
+    </html>
