@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DiplomenProekt.Migrations
 {
-    public partial class hristov : Migration
+    public partial class mypc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
