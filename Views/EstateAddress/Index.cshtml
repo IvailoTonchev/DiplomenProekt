@@ -2,7 +2,8 @@
 
 
 @model IEnumerable<Address>
-
+ @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
 <div class="estate-index">
 
 
@@ -36,3 +37,4 @@
         }
     </div>
 </div>
+        }
