@@ -35,7 +35,7 @@ namespace DiplomenProekt.Services
         private async Task CreateRolesAsync()
         {
             await roleManager.CreateAsync(new IdentityRole("Admin"));
-            await roleManager.CreateAsync(new IdentityRole("Broker"));
+            await roleManager.CreateAsync(new IdentityRole("User"));
         }
 
         private async Task RegisterUsersAsync()
@@ -45,24 +45,18 @@ namespace DiplomenProekt.Services
                 UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
             };
-
             var user2 = new AppUser
-            {
-                UserName = "broker@abv.bg",
-                Email = "broker@abv.bg",
-            };
-            var user3 = new AppUser
             {
                 UserName = "user@abv.bg",
                 Email = "user@abv.bg",
             };
+
             var pwd = "1234Aa%";
 
             await userManager.CreateAsync(user1, pwd);
             await userManager.CreateAsync(user2, pwd);
-            await userManager.CreateAsync(user3, pwd);
             await userManager.AddToRoleAsync(user1, "Admin");
-            await userManager.AddToRoleAsync(user2, "Broker");
+            await userManager.AddToRoleAsync(user2, "User");
         }
 
         private async Task CreateAddressAsync()

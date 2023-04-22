@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DiplomenProekt.Data;
 using DiplomenProekt.Data.Models;
 using DiplomenProekt.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DiplomenProekt.Controllers
 {
@@ -68,9 +69,10 @@ namespace DiplomenProekt.Controllers
             ViewData["Neigbhourhoods"] = _context.Addresses.Where(x => !x.IsDeleted).Select(a => new AddressChoiseDTO(a.Id, a.City.ToString(), a.Neighbourhood, a.Description, a.Pics)).ToList();
             return View();
         }
-        
+
 
         // GET: Estates1/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["Neigbhourhoods"] = _context.Addresses.Where(x => !x.IsDeleted).Select(a => new AddressChoiseDTO(a.Id, a.City.ToString(), a.Neighbourhood, a.Description, a.Pics)).ToList();
@@ -100,6 +102,7 @@ namespace DiplomenProekt.Controllers
         }
 
         // GET: Estates1/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             
@@ -178,6 +181,7 @@ namespace DiplomenProekt.Controllers
         }
 
         // GET: Estates1/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Estates == null)

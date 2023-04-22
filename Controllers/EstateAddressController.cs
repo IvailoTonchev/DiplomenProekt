@@ -8,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using DiplomenProekt.Data;
 using DiplomenProekt.Data.Models;
 using DiplomenProekt.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DiplomenProekt.Controllers
 {
+    [Authorize(Roles="Admin")]
+    
     public class EstateAddressController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,7 +24,8 @@ namespace DiplomenProekt.Controllers
         }
 
         // GET: Addresses
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index() 
         {
               return _context.Addresses != null ? 
                           View(await _context.Addresses.Where(x=>x.IsDeleted==false).ToListAsync()) :
@@ -30,7 +34,7 @@ namespace DiplomenProekt.Controllers
         }
 
         // GET: Addresses/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id) 
         {
             if (id == null || _context.Addresses == null)
             {

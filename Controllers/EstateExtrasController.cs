@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DiplomenProekt.Data;
 using DiplomenProekt.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DiplomenProekt.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EstateExtrasController : Controller
     {
         private readonly ApplicationDbContext _context;
