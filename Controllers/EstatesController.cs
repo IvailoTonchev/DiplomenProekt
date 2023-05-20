@@ -64,6 +64,7 @@ namespace DiplomenProekt.Controllers
             }           
             return View(address);
         }
+      
         public IActionResult AddressDetails()
         {
             ViewData["Neigbhourhoods"] = _context.Addresses.Where(x => !x.IsDeleted).Select(a => new AddressChoiseDTO(a.Id, a.City.ToString(), a.Neighbourhood, a.Description, a.Pics)).ToList();

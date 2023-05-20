@@ -73,8 +73,8 @@ namespace DiplomenProekt.Controllers
             return View(address);
         }
 
-        // GET: Addresses/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            // GET: Addresses/Edit/5
+            public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Addresses == null)
             {
